@@ -1,0 +1,14 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Python News Scraper</title>
+</head>
+<body>
+  <ul>
+    {% for c in categories %}
+      <li> <a href="{{ c.get_absolute_url }}"> {{ c.name }} </a> </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

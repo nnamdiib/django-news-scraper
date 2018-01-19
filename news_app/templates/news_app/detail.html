@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Python News Scraper</title>
+</head>
+<body>
+  <h1>{{ article.title }}</h1>
+  <p><i> Originally from {{ article.source_url }} </i></p>
+  <p> <img src="{{ article.img_url }}"></p>
+  <p>
+    {{ article.text }}
+  </p>
+</body>
+</html>
