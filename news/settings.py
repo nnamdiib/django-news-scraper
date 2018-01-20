@@ -77,25 +77,25 @@ WSGI_APPLICATION = 'news.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-# Use SQLlite DB for Python Anywhere
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-# I am using a PostgreSQL DB for Heroku
+# Use SQLlite DB
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'news',
-#         'USER': 'nnamdi',
-#         'PASSWORD': 'root',
-#         'HOST': 'localhost',
-#         'PORT': '',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
-# # }
+# }
+
+# I am using a PostgreSQL DB for Python Anywhere
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'news',
+        'USER': 'nnamdi',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 # # These 2 lines were added for Heroku deployment.
 # db_from_env = dj_database_url.config(conn_max_age=500)
