@@ -74,7 +74,7 @@ class Command(BaseCommand):
 
   def handle(self, *args, **options):
     scheduler = BackgroundScheduler()
-    scheduler.add_job(scrape_and_insert, 'interval', seconds=600)
+    scheduler.add_job(scrape_and_insert, 'interval', seconds=300)
     scheduler.start()
     self.stdout.write('Press Ctrl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
 
