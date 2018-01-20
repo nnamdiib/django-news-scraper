@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'news.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-Use SQLlite DB
+#Use SQLlite DB
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
