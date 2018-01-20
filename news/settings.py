@@ -29,7 +29,7 @@ DEBUG = True
 if ENV_ROLE == 'production':
     DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '192.168.173.1']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
