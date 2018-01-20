@@ -98,6 +98,7 @@ DATABASES = {
     }
 }
 
+# These 2 lines were added for Heroku deployment.
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
@@ -140,5 +141,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Lines added for Heroku
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
