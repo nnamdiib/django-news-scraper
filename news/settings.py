@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'news.wsgi.application'
 # I am using a PostgreSQL DB
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_pscopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'news',
         'USER': 'nnamdi',
         'PASSWORD': '',
