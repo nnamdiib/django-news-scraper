@@ -29,7 +29,7 @@ DEBUG = True
 if ENV_ROLE == 'production':
     DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '192.168.173.1']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -77,25 +77,29 @@ WSGI_APPLICATION = 'news.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-# I am using a PostgreSQL DB
+# Use SQLlite DB for Python Anywhere
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'news',
-        'USER': 'nnamdi',
-        'PASSWORD': os.environ.get('NEWS_APP_DB_PASS'),
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# I am using a PostgreSQL DB for Heroku
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'news',
+#         'USER': 'nnamdi',
+#         'PASSWORD': 'root',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# # }
+
+# # These 2 lines were added for Heroku deployment.
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -135,3 +139,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# # Lines added for Heroku
+# PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+# STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
