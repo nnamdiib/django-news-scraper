@@ -20,10 +20,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'fdaqg0n%g*byyi-vuy8^&8a5j9w8vh(n8jc8r67w$65eg08%)p'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
+ENV_ROLE = os.environ.get('ENV_ROLE')
 DEBUG = True
+if ENV_ROLE == 'production':
+    DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', '192.168.173.1']
 
@@ -87,7 +90,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'news',
         'USER': 'nnamdi',
-        'PASSWORD': 'root',
+        'PASSWORD': os.environ.get('NEWS_APP_DB_PASS'),
         'HOST': 'localhost',
         'PORT': '',
     }
