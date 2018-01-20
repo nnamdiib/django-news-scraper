@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'news.wsgi.application'
 # I am using a PostgreSQL DB
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_pscopg2',
         'NAME': 'news',
         'USER': 'nnamdi',
         'PASSWORD': os.environ.get('NEWS_APP_DB_PASS'),
@@ -96,6 +96,9 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
